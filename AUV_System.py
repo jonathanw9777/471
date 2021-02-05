@@ -17,8 +17,8 @@ import adafruit_bno055
 # Takes instantiated and active I2C object
 # From busio or the bitbangio library
 # Creates an I2C object
-# from busio import I2C
-# from board import SDA, SCL
+from busio import I2C
+from board import SDA, SCL
 i2c = I2C(SCL, SDA)
 
 # Creates sensor object
