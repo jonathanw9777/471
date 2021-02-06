@@ -1,28 +1,16 @@
-import RPi.GPIO as GPIO
+from Adafruit_PWM_Servo_Driver import PWM
 import time
- 
-ledPin = 33
- 
-def setup():
-    global pwm
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(ledPin, GPIO.OUT)
-    GPIO.output(ledPin, GPIO.HIGH)
-    pwm = GPIO.PWM(ledPin, 1700000000) # Set Frequency to 1 KHz
-    pwm.start(25) # Set the starting Duty Cycle
-     
-def loop():
-    while True:
-        pwm.ChangeFrequency(1900000000)
-         
-def destroy():
-    pwm.stop()
-    GPIO.output(ledPin, GPIO.LOW)
-    GPIO.cleanup()
-     
-if  __name__ == '__main__':
-    setup()
-    try:
-        loop()
-    except KeyboardInterrupt:
-        destroy()
+
+# Initialize the PWM device using the default address
+pwm = PWM(0x40)
+frequency = 100
+
+def setPWM(channel, frequency, pwmMicroseconds):
+    pulseLength = float(1000000)                   # 1,000,000 us per second
+    pulseLength /= frequency                       
+    pulseLength /= 4096                     # 12 bits of resolution
+    pulse /= pulseLength
+    pwmMicroseconds.setPWM(channel, 0, pulse)
+
+pwm.setPWMFreq(frequency)                        # Set frequency to 500 Hz
+setServoPulse(15, frequency, 1500)  # Send a 1500 us pulse to channel 15
