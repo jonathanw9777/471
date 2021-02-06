@@ -13,7 +13,7 @@ def setup():
      
 def loop():
     while True:
-        pwm.ChangeDutyCycle(50)
+        pwm.ChangeDutyCycle(100)
         pwm.ChangeFrequency(100)
          
 def destroy():
