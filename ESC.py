@@ -13,7 +13,7 @@ def setup():
      
 def loop():
     while True:
-        pwm.ChangeFrequency(10)
+        pwm.ChangeFrequency(190000)
         print('Dogecoin to the moon')
          
 def destroy():
