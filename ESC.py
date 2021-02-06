@@ -34,6 +34,8 @@ def setup():
      
 def loop():
     while True:
+    pwm = GPIO.PWM(ledPin, 1900) # Set Frequency to 1 KHz
+    pwm.start(50) # Set the starting Duty Cycle
 #        for dc in range(0, 101, 1):
 #            pwm.ChangeDutyCycle(dc)
 #            time.sleep(0.01)
