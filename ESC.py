@@ -35,16 +35,7 @@ def setup():
      
 def loop():
     while True:
-        for dc in range(50, 101, 1):
-            pwm.ChangeDutyCycle(dc)
-            print(f"Duty Cycle at {dc}")
-            time.sleep(10)
-        time.sleep(1)
-        for dc in range(100, 50, -1):
-            pwm.ChangeDutyCycle(dc)
-            print(f"Duty Cycle at {dc}")
-            time.sleep(10)
-        time.sleep(1)
+      pwm.ChangeFrequency(.0018)
          
 def destroy():
     pwm.stop()
