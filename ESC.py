@@ -13,8 +13,7 @@ def setup():
      
 def loop():
     while True:
-        pwm.ChangeFrequency(19000)
-        print('Elon Papi')
+        pwm.ChangeFrequency(1900000)
          
 def destroy():
     pwm.stop()
