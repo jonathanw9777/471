@@ -52,5 +52,5 @@ if  __name__ == '__main__':
     setup()
     try:
         loop()
-    excep KeyboardInterrupt:
+    except KeyboardInterrupt:
         destroy()
