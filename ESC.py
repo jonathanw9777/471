@@ -9,7 +9,7 @@ def setup():
     GPIO.setup(ledPin, GPIO.OUT)
     GPIO.output(ledPin, GPIO.HIGH)
     pwm = GPIO.PWM(ledPin, 1700000000) # Set Frequency to 1 KHz
-    pwm.start(100) # Set the starting Duty Cycle
+    pwm.start(25) # Set the starting Duty Cycle
      
 def loop():
     while True:
