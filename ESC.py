@@ -7,7 +7,7 @@ def setup():
     global pwm
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(ledPin, GPIO.OUT)
-    GPIO.output(ledPin, GPIO.LOW)
+    GPIO.output(ledPin, GPIO.HIGH)
     pwm = GPIO.PWM(ledPin, 1700) # Set Frequency to 1 KHz
     pwm.start(25) # Set the starting Duty Cycle
      
