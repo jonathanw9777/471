@@ -74,8 +74,8 @@ void loop(void)
       servo2.writeMicroseconds(signal2);
   }
   else {
-      int signal1 = 1500;
-      int signal2 = 1500;
+      int signal1 = 1600;
+      int signal2 = 1600;
       servo1.writeMicroseconds(signal1);
       servo2.writeMicroseconds(signal2);
   }
