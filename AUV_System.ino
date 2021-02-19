@@ -13,8 +13,12 @@
 */
 Adafruit_BNO055 bno = Adafruit_BNO055(55);
 
-byte servoPin11 = 11;
-byte servoPin10 = 10;
+byte servoPin11 = 11;  /* front left */ 
+byte servoPin10 = 10;  /* front right */ 
+byte servoPin9 = 9;    /* middle left */ 
+byte servoPin6 = 6;    /* middle left */ 
+byte servoPin5 = 5;    /* back left */ 
+byte servoPin3 = 3;    /* back right */ 
 
 Servo servo1;
 Servo servo2;
