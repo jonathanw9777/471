@@ -99,7 +99,9 @@ void loop(void)
       servo1.writeMicroseconds(signal1);
       servo2.writeMicroseconds(signal2);
   }
-  else {    /*Stable*/
+  /*Stable*/
+  else if ((event.orientation.x <= 340 && event.orientation.x >= 20) && (event.orientation.y <= 20 && event.orientation.y >= -20) && (event.orientation.z <= 35 && event.orientation.z >= -35))
+  {   
       int signal1 = 1500;
       int signal2 = 1500;
       int signal3 = 1600;
@@ -113,6 +115,10 @@ void loop(void)
       servo3.writeMicroseconds(signal5);
       servo4.writeMicroseconds(signal6);
   }
+  else{/* Empty */
+  
+  
+  }
   
   delay(100);
 }
@@ -120,6 +126,8 @@ void loop(void)
  * Stable
  * Forward
  * Reverse
+ * Left
+ * Right
  * Rotate Left
  * Rotate Right
  * Nose Up
