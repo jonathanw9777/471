@@ -120,8 +120,6 @@ void loop(void)
  * Stable
  * Forward
  * Reverse
- * Left
- * Right
  * Rotate Left
  * Rotate Right
  * Nose Up
