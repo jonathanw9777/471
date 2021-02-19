@@ -22,15 +22,29 @@ byte servoPin3 = 3;    /* back right */
 
 Servo servo1;
 Servo servo2;
+Servo servo3;
+Servo servo4;
+Servo servo5;
+Servo servo6;
+
+
 
 void setup() {
 
   /*Connects Thrusters Analog Inputs and Initializes them as neutral */
   servo1.attach(servoPin10);
   servo2.attach(servoPin11);
+  servo3.attach(servoPin9);
+  servo4.attach(servoPin6);
+  servo5.attach(servoPin5);
+  servo6.attach(servoPin3);
 
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
+  servo3.writeMicroseconds(1500);
+  servo4.writeMicroseconds(1500);
+  servo5.writeMicroseconds(1500);
+  servo6.writeMicroseconds(1500);
 
  
   Serial.begin(9600);
@@ -68,20 +82,36 @@ void loop(void)
   if (event.orientation.z >= 80) {
       int signal1 = 1700;
       int signal2 = 1200;
+      int signal3 = 1700;
+      int signal4 = 1200;
+      int signal5 = 1700;
+      int signal6 = 1200;
       servo1.writeMicroseconds(signal1);
       servo2.writeMicroseconds(signal2);
   }
   else if (event.orientation.z <= -80) {
-      int signal1 = 1200;
-      int signal2 = 1700;
+      int signal1 = 1700;
+      int signal2 = 1200;
+      int signal3 = 1700;
+      int signal4 = 1200;
+      int signal5 = 1700;
+      int signal6 = 1200;
       servo1.writeMicroseconds(signal1);
       servo2.writeMicroseconds(signal2);
   }
-  else {
-      int signal1 = 1600;
-      int signal2 = 1600;
-      servo1.writeMicroseconds(signal1);
-      servo2.writeMicroseconds(signal2);
+  else {    /*Stable*/
+      int signal1 = 1500;
+      int signal2 = 1500;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1500;
+      int signal6 = 1500;
+      servo3.writeMicroseconds(signal1);
+      servo4.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo3.writeMicroseconds(signal5);
+      servo4.writeMicroseconds(signal6);
   }
   
   delay(100);
