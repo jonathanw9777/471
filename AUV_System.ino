@@ -108,12 +108,12 @@ void loop(void)
       int signal4 = 1600;
       int signal5 = 1500;
       int signal6 = 1500;
-      servo3.writeMicroseconds(signal1);
-      servo4.writeMicroseconds(signal2);
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
       servo3.writeMicroseconds(signal3);
       servo4.writeMicroseconds(signal4);
-      servo3.writeMicroseconds(signal5);
-      servo4.writeMicroseconds(signal6);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
   }
   else{/* Empty */
   Serial.print("Empty else statement");
