@@ -116,7 +116,7 @@ void loop(void)
       servo4.writeMicroseconds(signal6);
   }
   else{/* Empty */
-  
+  Serial.print("Empty else statement");
   
   }
   
