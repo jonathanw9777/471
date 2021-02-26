@@ -79,27 +79,41 @@ void loop(void)
   Serial.println("");
    
   /*Based on Z-coordinate, control a certain thruster */
-   curr_state = stable; 
-   switch(curr_state){
-      case stable :
-         
+   int z_orientation1 = 20;
+   int z_orientation2 = -20;
+   
+   switch(event.orientation.z){
+      case z_orientation1:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
       break;
          
-      case left:
-         
+      case z_orientation2:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break; 
       break;
-         
-      case right:
-         
-      break;
-         
-      case forward:
-         
-      break;
-      
-      case reverse:
-         
-      break;
+        
       default:
       int signal1 = 1600;
       int signal2 = 1600;
@@ -116,9 +130,109 @@ void loop(void)
       break;
    }
    
-    
+   int y_orientation1 = 20;
+   int y_orientation2 = -20;
    
+   switch(event.orientation.y){
+      case y_orientation1:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break;
+         
+      case y_orientation2:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break; 
+      break;
+        
+      default:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break;
    }
+   
+   int x_orientation1 = 35;
+   int x_orientation2 = -35;
+   
+    switch(event.orientation.x){
+      case x_orientation1:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break;
+         
+      case x_orientation2:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break; 
+      break;
+        
+      default:
+      int signal1 = 1600;
+      int signal2 = 1600;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1600;
+      int signal6 = 1600;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break;
+   } 
+   
+ }
  /* if (event.orientation.z >= 80) {
       int signal1 = 1700;
       int signal2 = 1200;
