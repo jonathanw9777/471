@@ -79,7 +79,42 @@ void loop(void)
   Serial.println("");
 
   /*Based on Z-coordinate, control a certain thruster */
-  if (event.orientation.z >= 80) {
+   switch(event.orientation.x || event.orientation.y || event.orientation.z){
+      case :
+         
+      break;
+      case :
+         
+      break;
+      case :
+         
+      break;
+      case :
+         
+      break;
+      case :
+         
+      break;
+      default:
+      int signal1 = 1500;
+      int signal2 = 1500;
+      int signal3 = 1600;
+      int signal4 = 1600;
+      int signal5 = 1500;
+      int signal6 = 1500;
+      servo1.writeMicroseconds(signal1);
+      servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+      break;
+   }
+   
+    
+   
+   }
+ /* if (event.orientation.z >= 80) {
       int signal1 = 1700;
       int signal2 = 1200;
       int signal3 = 1700;
@@ -88,6 +123,10 @@ void loop(void)
       int signal6 = 1200;
       servo1.writeMicroseconds(signal1);
       servo2.writeMicroseconds(signal2);
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
   }
   else if (event.orientation.z <= -80) {
       int signal1 = 1700;
@@ -98,9 +137,14 @@ void loop(void)
       int signal6 = 1200;
       servo1.writeMicroseconds(signal1);
       servo2.writeMicroseconds(signal2);
-  }
-  /*Stable*/
-  else if ((event.orientation.x <= 340 && event.orientation.x >= 20) && (event.orientation.y <= 20 && event.orientation.y >= -20) && (event.orientation.z <= 35 && event.orientation.z >= -35))
+      servo3.writeMicroseconds(signal3);
+      servo4.writeMicroseconds(signal4);
+      servo5.writeMicroseconds(signal5);
+      servo6.writeMicroseconds(signal6);
+  }*/
+
+
+ /* else if ((event.orientation.x <= 340 && event.orientation.x >= 20) && (event.orientation.y <= 20 && event.orientation.y >= -20) && (event.orientation.z <= 35 && event.orientation.z >= -35))
   {   
       int signal1 = 1500;
       int signal2 = 1500;
@@ -115,13 +159,15 @@ void loop(void)
       servo5.writeMicroseconds(signal5);
       servo6.writeMicroseconds(signal6);
   }
-  else{/* Empty */
+  else{
   Serial.print("Empty else statement");
   
   }
   
   delay(100);
-}
+}*/
+
+
 /*
  * Stable
  * Forward
