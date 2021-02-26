@@ -77,31 +77,36 @@ void loop(void)
   Serial.print("\tZ: ");
   Serial.print(event.orientation.z, 4);
   Serial.println("");
-
+   
   /*Based on Z-coordinate, control a certain thruster */
-   switch(event.orientation.x || event.orientation.y || event.orientation.z){
-      case :
+   curr_state = stable; 
+   switch(curr_state){
+      case stable :
          
       break;
-      case :
+         
+      case left:
          
       break;
-      case :
+         
+      case right:
          
       break;
-      case :
+         
+      case forward:
          
       break;
-      case :
+      
+      case reverse:
          
       break;
       default:
-      int signal1 = 1500;
-      int signal2 = 1500;
+      int signal1 = 1600;
+      int signal2 = 1600;
       int signal3 = 1600;
       int signal4 = 1600;
-      int signal5 = 1500;
-      int signal6 = 1500;
+      int signal5 = 1600;
+      int signal6 = 1600;
       servo1.writeMicroseconds(signal1);
       servo2.writeMicroseconds(signal2);
       servo3.writeMicroseconds(signal3);
