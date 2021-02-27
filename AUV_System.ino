@@ -20,12 +20,12 @@ byte servoPin6 = 6;
 byte servoPin5 = 5;
 byte servoPin3 = 3;
 /*Initializes state values*/
-byte curr_state = 0;
-byte stable = 0;
-byte forward = 1;
-byte reverse = 2;
-byte left = 3;
-byte right = 4;
+byte curr_state = NULL;
+byte stable = 1;
+byte forward = 2;
+byte reverse = 3;
+byte left = 4;
+byte right = 5;
 
 Servo servo1, servo2, servo3, servo4, servo5, servo6;
 
@@ -46,6 +46,8 @@ void setup() {
   servo5.writeMicroseconds(1500);
   servo6.writeMicroseconds(1500);
 
+  delay(5000);
+
   Serial.begin(9600);
   Serial.println("Orientation Coordinates"); Serial.println("");
   
@@ -58,26 +60,6 @@ void setup() {
   }
   delay(1000); 
   bno.setExtCrystalUse(true);
-}
-
-byte statements(byte){
-  
-  if (curr_state == 0){
-   curr_state = stable; 
-  }
-  else if (curr_state == 1) {
-    curr_state = forward;
-  }
-  else if (curr_state == 2) {
-    curr_state = reverse;
-  }
-  else if (curr_state == 3) {
-    curr_state = left;
-  }
-  else if (curr_state == 4) {
-    curr_state = right;
-  }
-  return curr_state;
 }
 
 void loop(void) {
@@ -94,8 +76,7 @@ void loop(void) {
   Serial.print(event.orientation.z, 4);
   Serial.println("");
 
-  
-  curr_state = statements(curr_state);
+  curr_state = 1;
   switch(curr_state){
    /*Stable*/
    case 1:
@@ -103,6 +84,9 @@ void loop(void) {
       servo4.writeMicroseconds(1600);
       if (event.orientation.z <= event.orientation.z + 20 && event.orientation.z >= event.orientation.z - 20){ 
       /*Forward State*/
+         curr_state = 2;
+      }
+      else {
          curr_state = 1;
       }
       break;
@@ -116,10 +100,10 @@ void loop(void) {
       servo6.writeMicroseconds(1600);
       if (event.orientation.z <= event.orientation.z + 20 && event.orientation.z >= event.orientation.z - 20){ 
       /*Control Top thrusters*/
-         curr_state = 2;
+         curr_state = 3;
       }
       else {
-         curr_state = 0;
+         curr_state = 1;
       }
       break;
    /*Reverse*/
@@ -132,7 +116,7 @@ void loop(void) {
       servo6.writeMicroseconds(1200);
       if (event.orientation.z <= event.orientation.z + 20 && event.orientation.z >= event.orientation.z - 20){ 
       /*Control Top thrusters*/
-         curr_state = 0;
+         curr_state = 1;
       }
       break;
 
