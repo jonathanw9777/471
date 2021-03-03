@@ -40,7 +40,7 @@ void setup() {
   servo4.attach(servoPin6);
   servo5.attach(servoPin5);
   servo6.attach(servoPin3);
-  
+
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
   servo3.writeMicroseconds(1500);
@@ -52,25 +52,25 @@ void setup() {
 
   Serial.begin(9600);
   Serial.println("Orientation Coordinates"); Serial.println("");
-  
+
   /* Initialise the sensor */
-  if(!bno.begin())
+  if (!bno.begin())
   {
     /* There was a problem detecting the BNO055 ... check your connections */
     Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
-    while(1);
+    while (1);
   }
-  delay(3000); 
+  delay(3000);
   bno.setExtCrystalUse(true);
 }
 
 /***************************************************************************************************************/
 
 void loop(void) {
-  /* Get a new sensor event */ 
-  sensors_event_t event; 
+  /* Get a new sensor event */
+  sensors_event_t event;
   bno.getEvent(&event);
-  
+
   /* Display the floating point data */
   Serial.print("X: ");
   Serial.print(event.orientation.x, 4);
@@ -83,13 +83,13 @@ void loop(void) {
   curr_state = 1;
 
   /* Make AUV stable using IMU values*/
-  if(/* not stable */){
-     if(/* tilted left */){
+  if (/* not stable */) {
+    if (/* tilted left */) {
       /* roll right */
-     }
-     else {
+    }
+    else {
       /* roll left */
-     }
+    }
   }
   else {
     /* keep rotating left/right */
@@ -97,111 +97,96 @@ void loop(void) {
 
 
   /* Bring object straight ahead using camera GPIO input*/
-/*  if(/* in front */){
-      /* forward */
-/*  }
-  else {
-    /* keep rotating left/right */
-/*  }
-*/
-  
-    switch(curr_state){
-   /*Stable*/
-   case 1:
-     /* State 0: Stable */
-  servo1.writeMicroseconds(1500);
-  servo2.writeMicroseconds(1500);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1700);
-  servo5.writeMicroseconds(1500);
-  servo6.writeMicroseconds(1500);
-  delay(5000);
-      break;
-      
-   /*Forward*/
-   case 2: 
-        /* State 1: Forward */
-  servo1.writeMicroseconds(1500);
-  servo2.writeMicroseconds(1500);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1700);
-  servo5.writeMicroseconds(1700);
-  servo6.writeMicroseconds(1700);
-  delay(5000);
-      break;
-      
-   /*Reverse*/
-   case 3:
-        /* State 2: Reverse */
-  servo1.writeMicroseconds(1500);
-  servo2.writeMicroseconds(1500);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1700);
-  servo5.writeMicroseconds(1300);
-  servo6.writeMicroseconds(1300);
-  delay(5000);
-      break;
-  
-   /*Left*/
-   case 4:
-        /* State 3: Left */
-  servo1.writeMicroseconds(1700);
-  servo2.writeMicroseconds(1700);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1700);
-  servo5.writeMicroseconds(1500);
-  servo6.writeMicroseconds(1500);
-  delay(5000);
-      break;
+  /*  if(/* in front */) {
+    /* forward */
+    /*  }
+      else {
+        /* keep rotating left/right */
+    /*  }
+    */
 
-   /*Right*/
-   case 5:
-        /* State 4: Right */
-  servo1.writeMicroseconds(1300);
-  servo2.writeMicroseconds(1300);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1700);
-  servo5.writeMicroseconds(1500);
-  servo6.writeMicroseconds(1500);
-  delay(5000);
-      break;
+    switch (curr_state) {
+      /* State 0: Stable */
+      case 1:
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1700);
+        servo4.writeMicroseconds(1700);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        break;
 
-   /*Roll Left*/
-   case 6:
-       /* State 5: Roll Left */
-  servo1.writeMicroseconds(1500);
-  servo2.writeMicroseconds(1500);
-  servo3.writeMicroseconds(1300);
-  servo4.writeMicroseconds(1700);
-  servo5.writeMicroseconds(1500);
-  servo6.writeMicroseconds(1500);
-  delay(5000);
-      break;
+      /* State 1: Forward */
+      case 2:
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1700);
+        servo4.writeMicroseconds(1700);
+        servo5.writeMicroseconds(1700);
+        servo6.writeMicroseconds(1700);
+        break;
 
-   /*Roll Right*/
-   case 7:
-        /* State 6: Roll Right */
-  servo1.writeMicroseconds(1500);
-  servo2.writeMicroseconds(1500);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1300);
-  servo5.writeMicroseconds(1500);
-  servo6.writeMicroseconds(1500);
-  delay(5000);
-      break;
+      /* State 2: Reverse */
+      case 3:
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1700);
+        servo4.writeMicroseconds(1700);
+        servo5.writeMicroseconds(1300);
+        servo6.writeMicroseconds(1300);
+        break;
 
-   default:
-  /* State 0: Stable */
-  servo1.writeMicroseconds(1500);
-  servo2.writeMicroseconds(1500);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1700);
-  servo5.writeMicroseconds(1500);
-  servo6.writeMicroseconds(1500);
-  delay(5000);
-      break;
+      /* State 3: Left */
+      case 4:
+        servo1.writeMicroseconds(1700);
+        servo2.writeMicroseconds(1700);
+        servo3.writeMicroseconds(1700);
+        servo4.writeMicroseconds(1700);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        break;
+
+      /* State 4: Right */
+      case 5:
+        servo1.writeMicroseconds(1300);
+        servo2.writeMicroseconds(1300);
+        servo3.writeMicroseconds(1700);
+        servo4.writeMicroseconds(1700);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        break;
+
+      /* State 5: Roll Left */
+      case 6:
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1300);
+        servo4.writeMicroseconds(1700);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        break;
+
+      /* State 6: Roll Right */
+      case 7:
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1700);
+        servo4.writeMicroseconds(1300);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        break;
+
+      default:
+        /* State 0: Stable */
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1700);
+        servo4.writeMicroseconds(1700);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        break;
+    }
+    delay(100);
   }
-  delay(100);
-}
 
 }
