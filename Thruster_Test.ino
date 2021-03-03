@@ -25,7 +25,7 @@ void setup() {
   servo5.writeMicroseconds(1500);
   servo6.writeMicroseconds(1500);
 
-  delay(15000); // delay to allow the ESC to recognize the stopped signal
+  delay(10000); // delay to allow the ESC to recognize the stopped signal
 }
 
 void loop() {
