@@ -1,5 +1,3 @@
-// DO NOT MODIFY THIS CODE AFTER FIRST SUCCESSFUL TEST
-
 #include <Servo.h>
 
 byte servoPin11 = 11;
@@ -17,7 +15,7 @@ void setup() {
   servo4.attach(servoPin6);
   servo5.attach(servoPin5);
   servo6.attach(servoPin3);
-  
+
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
   servo3.writeMicroseconds(1500);
@@ -29,7 +27,7 @@ void setup() {
 }
 
 void loop() {
- 
+
   // State 0: Stable
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
@@ -39,7 +37,7 @@ void loop() {
   servo6.writeMicroseconds(1500);
   delay(5000);
 
-  //State 1: Forward 
+  //State 1: Forward
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
   servo3.writeMicroseconds(1700);
@@ -74,16 +72,16 @@ void loop() {
   servo5.writeMicroseconds(1500);
   servo6.writeMicroseconds(1500);
   delay(5000);
-  
- // State 5: Roll Left
+
+  // State 5: Roll Left
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
   servo3.writeMicroseconds(1300);
   servo4.writeMicroseconds(1700);
   servo5.writeMicroseconds(1500);
   servo6.writeMicroseconds(1500);
-  delay(5000);
-  
+  delay(3000);
+
   // State 6: Roll Right
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
@@ -91,6 +89,6 @@ void loop() {
   servo4.writeMicroseconds(1300);
   servo5.writeMicroseconds(1500);
   servo6.writeMicroseconds(1500);
-  delay(5000);
-  
+  delay(3000);
+
 }
