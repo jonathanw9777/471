@@ -1,3 +1,5 @@
+// DO NOT MODIFY THIS CODE AFTER FIRST SUCCESSFUL TEST
+
 #include <Servo.h>
 
 byte servoPin11 = 11;
