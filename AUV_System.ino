@@ -3,6 +3,11 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
+/*  Brown = Negative, Yellow = Positive
+ *  Thruster: Left column (11 9 5)
+ *  Right column (10 6 3)
+ */
+ 
 /*
    Connections
    ===========
@@ -60,6 +65,14 @@ void setup() {
   }
   delay(1000); 
   bno.setExtCrystalUse(true);
+  /* Initialize sensor event and tol */ 
+  sensors_event_t eventInit; 
+  tolX1 = eventInit.orientation.x + 35;
+  tolX2 = eventInit.orientation.x - 35;
+  tolY1 = eventInit.orientation.y + 20;
+  tolY2 = eventInit.orientation.y - 20;
+  tolZ1 = eventInit.orientation.z + 20;
+  tolZ2 = eventInit.orientation.z - 20;
 }
 
 void loop(void) {
@@ -80,15 +93,20 @@ void loop(void) {
   switch(curr_state){
    /*Stable*/
    case 1:
-      servo3.writeMicroseconds(1600);
-      servo4.writeMicroseconds(1600);
-      if (event.orientation.z <= event.orientation.z + 20 && event.orientation.z >= event.orientation.z - 20){ 
-      /*Forward State*/
-         curr_state = 2;
-      }
-      else {
-         curr_state = 1;
-      }
+        servo1.writeMicroseconds(1600);
+        servo2.writeMicroseconds(1600);
+        servo3.writeMicroseconds(1600);
+        servo4.writeMicroseconds(1600);
+        servo5.writeMicroseconds(1600);
+        servo6.writeMicroseconds(1600);
+//      if (event.orientation.z <= tolZ && event.orientation.z >= tolZ - 20){ 
+//      /*Forward State*/
+//         curr_state = 2;
+//      }
+//      else {
+//         curr_state = 1;
+//      }
+
       break;
    /*Forward*/
    case 2: 
@@ -119,15 +137,21 @@ void loop(void) {
          curr_state = 1;
       }
       break;
-
+   /*Turns off with reset button*/ 
    default:
       servo1.writeMicroseconds(1500);
       servo2.writeMicroseconds(1500);
       servo3.writeMicroseconds(1500);
       servo4.writeMicroseconds(1500);
       servo5.writeMicroseconds(1500);
-      servo6.writeMicroseconds(1200);
+      servo6.writeMicroseconds(1500);
       break;
   }
   delay(100);
 }
+/*    else if (event.orientation.y <= event.orientation.y + 20 && event.orientation.y >= event.orientation.y - 20){ */
+    /*Control the front or back thrusters along with top thrusters to balance the Pitch*/
+/*  } */
+/*    else if (event.orientation.x <= event.orientation.x + 35 && event.orientation.x >= event.orientation.x - 35){ */
+    /*Reverse front thruster and forward back thruster depending on Yaw position*/
+ 
