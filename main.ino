@@ -86,13 +86,17 @@ void loop(void) {
   if (/* not stable */) {
     if (/* tilted left */) {
       /* roll right */
+       curr_state = 7;
     }
     else {
       /* roll left */
+       curr_state = 8;
     }
   }
   else {
     /* keep rotating left/right */
+     curr_state = 4; /* left */
+     /* curr_state = 5; /* right */
   }
 
 
