@@ -106,7 +106,7 @@ void loop(void) {
     */
 
     switch (curr_state) {
-      /* State 0: Stable */
+      /* State 1: Stable */
       case 1:
         servo1.writeMicroseconds(1500);
         servo2.writeMicroseconds(1500);
@@ -116,7 +116,7 @@ void loop(void) {
         servo6.writeMicroseconds(1500);
         break;
 
-      /* State 1: Forward */
+      /* State 2: Forward */
       case 2:
         servo1.writeMicroseconds(1500);
         servo2.writeMicroseconds(1500);
@@ -126,7 +126,7 @@ void loop(void) {
         servo6.writeMicroseconds(1700);
         break;
 
-      /* State 2: Reverse */
+      /* State 3: Reverse */
       case 3:
         servo1.writeMicroseconds(1500);
         servo2.writeMicroseconds(1500);
@@ -136,7 +136,7 @@ void loop(void) {
         servo6.writeMicroseconds(1300);
         break;
 
-      /* State 3: Left */
+      /* State 4: Left */
       case 4:
         servo1.writeMicroseconds(1700);
         servo2.writeMicroseconds(1700);
@@ -146,7 +146,7 @@ void loop(void) {
         servo6.writeMicroseconds(1500);
         break;
 
-      /* State 4: Right */
+      /* State 5: Right */
       case 5:
         servo1.writeMicroseconds(1300);
         servo2.writeMicroseconds(1300);
@@ -156,7 +156,7 @@ void loop(void) {
         servo6.writeMicroseconds(1500);
         break;
 
-      /* State 5: Roll Left */
+      /* State 6: Roll Left */
       case 6:
         servo1.writeMicroseconds(1500);
         servo2.writeMicroseconds(1500);
@@ -166,7 +166,7 @@ void loop(void) {
         servo6.writeMicroseconds(1500);
         break;
 
-      /* State 6: Roll Right */
+      /* State 7: Roll Right */
       case 7:
         servo1.writeMicroseconds(1500);
         servo2.writeMicroseconds(1500);
@@ -176,7 +176,7 @@ void loop(void) {
         servo6.writeMicroseconds(1500);
         break;
 
-      // State 7: Up
+      // State 8: Up
       case 8:
         servo1.writeMicroseconds(1500);
         servo2.writeMicroseconds(1500);
@@ -186,7 +186,7 @@ void loop(void) {
         servo6.writeMicroseconds(1500);
         delay(3000);
 
-      // State 8: Down
+      // State 9: Down
       case 9:
         servo1.writeMicroseconds(1500);
         servo2.writeMicroseconds(1500);
