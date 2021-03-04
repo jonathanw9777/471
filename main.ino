@@ -4,6 +4,11 @@
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
 
+/*  Brown = Negative, Yellow = Positive
+    Thruster: Left column (11 9 5)
+    Right column (10 6 3)
+*/
+
 /*
    Connections
    ===========
@@ -21,6 +26,7 @@ byte servoPin9 = 9;
 byte servoPin6 = 6;
 byte servoPin5 = 5;
 byte servoPin3 = 3;
+
 /*Initializes state values*/
 byte curr_state = NULL;
 byte stable = 1;
@@ -28,6 +34,10 @@ byte forward = 2;
 byte reverse = 3;
 byte left = 4;
 byte right = 5;
+byte roll_left = 6;
+byte roll_right = 7;
+byte up = 8;
+byte down = 9;
 
 Servo servo1, servo2, servo3, servo4, servo5, servo6;
 
@@ -80,23 +90,26 @@ void loop(void) {
   Serial.print(event.orientation.z, 4);
   Serial.println("");
 
-  curr_state = 1;
+  curr_state = stable;
 
   /* Make AUV stable using IMU values*/
   if (/* not stable */) {
     if (/* tilted left */) {
       /* roll right */
-       curr_state = 7;
+      curr_state = roll_right;
     }
-    else {
+    else if (/* tilted right */) {
       /* roll left */
-       curr_state = 8;
+      curr_state = roll_left;
     }
   }
   else {
-    /* keep rotating left/right */
-     curr_state = 4; /* left */
-     /* curr_state = 5; /* right */
+    /* stable */
+    curr_state = stable;
+
+    /* or test rotate left/right */
+    /* curr_state = left; /* left */
+    /* curr_state = right; /* right */
   }
 
 
@@ -106,6 +119,8 @@ void loop(void) {
     /*  }
       else {
         /* keep rotating left/right */
+    /* curr_state = left; /* left */
+    /* curr_state = right; /* right */
     /*  }
     */
 
