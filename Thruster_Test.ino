@@ -31,8 +31,8 @@ void loop() {
   // State 0: Stable
   servo1.writeMicroseconds(1500);
   servo2.writeMicroseconds(1500);
-  servo3.writeMicroseconds(1700);
-  servo4.writeMicroseconds(1700);
+  servo3.writeMicroseconds(1600);
+  servo4.writeMicroseconds(1600);
   servo5.writeMicroseconds(1500);
   servo6.writeMicroseconds(1500);
   delay(5000);
