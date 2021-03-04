@@ -176,6 +176,26 @@ void loop(void) {
         servo6.writeMicroseconds(1500);
         break;
 
+      // State 7: Up
+      case 8:
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1850);
+        servo4.writeMicroseconds(1850);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        delay(3000);
+
+      // State 8: Down
+      case 9:
+        servo1.writeMicroseconds(1500);
+        servo2.writeMicroseconds(1500);
+        servo3.writeMicroseconds(1150);
+        servo4.writeMicroseconds(1150);
+        servo5.writeMicroseconds(1500);
+        servo6.writeMicroseconds(1500);
+        delay(3000);
+
       default:
         /* State 0: Stable */
         servo1.writeMicroseconds(1500);
