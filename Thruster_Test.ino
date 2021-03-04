@@ -90,5 +90,23 @@ void loop() {
   servo5.writeMicroseconds(1500);
   servo6.writeMicroseconds(1500);
   delay(3000);
+  
+  // State 7: Up
+  servo1.writeMicroseconds(1500);
+  servo2.writeMicroseconds(1500);
+  servo3.writeMicroseconds(1850);
+  servo4.writeMicroseconds(1850);
+  servo5.writeMicroseconds(1500);
+  servo6.writeMicroseconds(1500);
+  delay(3000);
+  
+  // State 8: Down
+  servo1.writeMicroseconds(1500);
+  servo2.writeMicroseconds(1500);
+  servo3.writeMicroseconds(1150);
+  servo4.writeMicroseconds(1150);
+  servo5.writeMicroseconds(1500);
+  servo6.writeMicroseconds(1500);
+  delay(3000);
 
 }
